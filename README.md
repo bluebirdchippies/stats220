@@ -20,6 +20,6 @@ I did this because:
 
 A meme that describes how I feel about doing this is ![How I feel doing a Math degree](https://media1.tenor.com/m/21VaRs50mDUAAAAd/danganronpa-makoto-naegi.gif)
 
-However I will be pursueing enjoyment via this website: [](https://www.leagueoflegends.com/en-au/download/ )
+However I will be pursueing enjoyment via this website: [LEAGUE OF LEGENDS DOWNLOAD LINK](https://www.leagueoflegends.com/en-au/download/ )
 
 As a result of going through this website, I will be more like this image: ![Me rn](https://i.imgflip.com/6m7i18.png?a492312)
