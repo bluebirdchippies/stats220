@@ -18,7 +18,7 @@ I did this because:
 2. And I wanted to have less options
 3. I was doing math papers anyways
 
-A meme that describes how I feel about doing this is ![How I feel doing a Math degree]([https://media1.tenor.com/m/WfqkollmqXYAAAAd/danganronpa-kyoko-kirigiri.gif](https://media1.tenor.com/m/21VaRs50mDUAAAAd/danganronpa-makoto-naegi.gif))
+A meme that describes how I feel about doing this is ![How I feel doing a Math degree](https://media1.tenor.com/m/21VaRs50mDUAAAAd/danganronpa-makoto-naegi.gif)
 
 However I will be pursueing enjoyment via this website: [](https://www.leagueoflegends.com/en-au/download/ )
 
