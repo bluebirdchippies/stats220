@@ -9,3 +9,17 @@ A little about me:
 - I am interested in learning about doing stuff
 
 A meme that captures how I currently feel about my university studies is ![](https://media.tenor.com/g0TdYZ1BMpgAAAAM/ishowspeed-meme.gif)
+
+## Update
+
+I have decided to switch things up and pursue a **Double Major** in Mathematics **And** Statistics (*L me*)
+I did this because:
+1. I felt like it
+2. And I wanted to have less options
+3. I was doing math papers anyways
+
+A meme that describes how I feel about doing this is ![How I feel doing a Math degree](https://media1.tenor.com/m/WfqkollmqXYAAAAd/danganronpa-kyoko-kirigiri.gif)
+
+However I will be pursueing enjoyment via this website: [](https://www.leagueoflegends.com/en-au/download/ )
+
+As a result of going through this website, I will be more like this image: ![Me rn](https://i.imgflip.com/6m7i18.png?a492312)
