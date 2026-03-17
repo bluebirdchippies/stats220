@@ -24,4 +24,4 @@ However I will be pursueing enjoyment via this website: [LEAGUE OF LEGENDS DOWNL
 
 As a result of going through this website, I will be more like this image: ![Me rn](https://i.imgflip.com/6m7i18.png?a492312)
 
-If you read through this all and you think this guy is the goat, please refer to this link: ![FREE MONEY](https://www.linkedin.com/in/armandspencer/)
+If you read through this all and you think this guy is the goat, please refer to this link: [FREE MONEY](https://www.linkedin.com/in/armandspencer/)
