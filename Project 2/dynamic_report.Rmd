@@ -1,0 +1,164 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+```
+
+```{css}
+
+body {
+  font-family: "Cal sans", BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #E0EFDA, #E18AD4);
+  font-size: 15px;
+}
+p {
+    font-family: "Cal sans", Helvetica;
+    font-size: 15px;
+}
+
+h1 {
+  font-family: "Cal sans", Helvetica;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+h2 {
+  font_family: "Cal sans", Helvetica;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: "Cal sans", Helvetica;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+}
+
+```
+
+## Comparing Travel Mode
+
+In this minor study of travel mode, we measured three variables: Travel mode, Duration of Travel, and Time of Travel. After going through the data, I found there was not an easy way to utilise the Time of Travel variable without doing some major research into how to transform the vector into something usable. Subsequently in this document, we only actually used travel mode and duration of Travel as usable data.
+
+```{r}
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRetKKj9bMRzvsbYOusSWE0uw2oEJIxmDjFP6C2U79SCUlN05jlOH4OHHo5kVT4mpo5BdYi9q9NZh7w/pub?output=csv")
+
+# testing
+# view(logged_data)
+
+# Renaming Variable Names
+latest_data1 <- logged_data %>%
+    rename(journey_mode = 2,
+           duration_min = 3,
+           journey_start_time = 4
+           )
+
+# Narrowing Dataframe to usable Vectors
+latest_data <- latest_data1 %>%
+  select( journey_mode,
+          duration_min,
+          journey_start_time)
+
+# Viewing Summaries
+max <- max(latest_data$duration_min) # Longest Journey
+min <- min(latest_data$duration_min) # Shortest Journey
+
+paste("In our data, we see that the longest journey took", max, "minutes, while the shortest journey took", min, "minutes.")
+
+```
+
+From our dataset, one thing we see is that the longest journey took 65 minutes as showed above and the shortest took 26 minutes. This is easily explained by traffic being the likely perpetrator here. The 26 minute journey most likely occurring either late at night or early in the morning. Whereas the 65 minute journey would have been smack bang during traffic hours.
+
+```{r}
+max_time <-latest_data %>%
+  filter(duration_min == max(duration_min, na.rm = TRUE)) %>%
+  select(journey_mode, duration_min, journey_start_time)
+
+paste("The longest journey started at", max_time$journey_start_time[1], "and the travel mode was",  max_time$journey_mode[1])
+
+```
+Within further consideration, we will be using journey_start_time to see what time was the longest and shortest journey.
+
+With further coding, the start time of travel associated with the longest journey is 7:22am as stated above. Lets find the start time for the shortest journey
+
+```{r}
+min_time <-latest_data %>%
+  filter(duration_min == min(duration_min, na.rm = TRUE)) %>%
+  select(journey_mode, duration_min, journey_start_time)
+
+paste("The shortest journey started at", min_time$journey_start_time[1], "and the travel mode was",  min_time$journey_mode[1])
+
+```
+The shortest journey time start time is also consistent with traffic hours. Being situated at 9pm.
+
+
+
+### Frequency of Travel Modes
+
+```{r fig.width= 6, fig.height = 5}
+# Plot Creation to compare Frequency of Travel Modes
+ggplot(latest_data) +
+  geom_bar(aes(x =journey_mode),
+           fill = "#ADFC92") +
+  labs(title = "Frequency of Travel Modes",
+       x = "Travel Mode",
+       y = "Frequency")
+
+```
+
+The figure above shows the frequency of travel modes by our individual. This data shows that during the week of data collection, they used a car nearly as frequently as using the bus. Car being used 8 times and Bus being used 10 times.
+
+```{r, fig.width =6, fig.height = 5}
+# Making new dataframe for mean values of duration
+mean_data <- latest_data %>%
+  group_by(journey_mode) %>%
+  summarise(mean_duration = mean(duration_min, na.rm=TRUE))
+
+# Plot Creation to compare mean Travel Times
+ggplot(mean_data) +
+         geom_col(aes(x =journey_mode, 
+                  y = mean_duration),
+                  fill = "#DE8F6E") +
+         labs(title = "Time of Transport by Travel Mode",
+              x = "Journey Mode",
+              y = "Mean Duration")
+
+```
+The second figure I created shows the mean travel time of Car vs Bus (as those were the only used travel options). This was done to show if there was a meaningful difference between the average time travelled by car vs on the bus. 
+
+As shown above, there is an observable difference. And it does show an interesting story. The reason being is that from above; we know that car as a travel mode includes both the longest journey and shortest journey. Yet the mean duration of both journey modes are quite similar, with bus being slightly longer. This tells us that the variance of bus journey is smaller then car. Which we will calculate right now!
+
+```{r}
+
+# creates subset of datapoints that used car
+car_data <- latest_data %>%
+  filter(journey_mode == "Car")
+# creates subset of datapoints that used bus
+bus_data <- latest_data %>%
+  filter(journey_mode == "Bus")
+
+# calculates standard deviation of both car and bus duration
+sd_car <- round(sd(car_data$duration_min),2)
+sd_bus <- round(sd(bus_data$duration_min),2)
+
+paste("The standard deviation for Car is", sd_car, "while the standard deviation for Bus is", sd_bus)
+```
+Which the above calculation proves our statement correct. The standard deviation for Car is higher then Bus. This shows us that the journeys by bus are a lot more consistent in timing then it is for car. However as the standard deviation for bus is still sizeable amount, we can infer that traffic and timing still does play a big factor in the duration of the journey. Although these factors are likely to influence car travel time to a stronger degree then it does for bus.
+
+![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
