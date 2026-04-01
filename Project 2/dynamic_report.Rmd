@@ -11,7 +11,7 @@ library(tidyverse)
 ```{css}
 
 body {
-  font-family: "Cal sans", BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Cal sans", "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   max-width: 900px;
   margin: auto;
@@ -20,24 +20,24 @@ body {
   font-size: 15px;
 }
 p {
-    font-family: "Cal sans", Helvetica;
+    font-family: "Cal sans", "Segoe UI", Roboto, sans-serif;
     font-size: 15px;
 }
 
 h1 {
-  font-family: "Cal sans", Helvetica;
+  font-family: "Cal sans", "Segoe UI", Roboto, sans-serif;
   color: #2C3E50;
   font-weight: 600;
 }
 
 h2 {
-  font_family: "Cal sans", Helvetica;
+  font_family: "Cal sans", "Segoe UI", Roboto, sans-serif;
   color: #2C3E50;
   font-weight: 600;
 }
 
 h3 {
-  font-family: "Cal sans", Helvetica;
+  font-family: "Cal sans", "Segoe UI", Roboto, sans-serif;
   color: #2C3E50;
   font-weight: 600;
 }
@@ -122,7 +122,7 @@ ggplot(latest_data) +
 
 ```
 
-The figure above shows the frequency of travel modes by our individual. This data shows that during the week of data collection, they used a car nearly as frequently as using the bus. Car being used 8 times and Bus being used 10 times.
+The figure above shows the frequency of travel modes. This data shows that during the week of data collection, they used a car nearly as frequently as using the bus. Car being used 8 times and Bus being used 10 times.
 
 ```{r, fig.width =6, fig.height = 5}
 # Making new dataframe for mean values of duration
@@ -159,6 +159,6 @@ sd_bus <- round(sd(bus_data$duration_min),2)
 
 paste("The standard deviation for Car is", sd_car, "while the standard deviation for Bus is", sd_bus)
 ```
-Which the above calculation proves our statement correct. The standard deviation for Car is higher then Bus. This shows us that the journeys by bus are a lot more consistent in timing then it is for car. However as the standard deviation for bus is still sizeable amount, we can infer that traffic and timing still does play a big factor in the duration of the journey. Although these factors are likely to influence car travel time to a stronger degree then it does for bus.
+Which the above calculation proves our statement correct. The standard deviation for Car is higher then Bus. This shows us that the journeys by bus are a lot more consistent in duration then it is for car from out dataset. However as the standard deviation for bus is still a sizeable amount, we can infer that traffic and timing still does play a big factor in the duration of the journey. Although these factors are likely to influence car travel time to a stronger degree then it does for bus.
 
-![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
+![](/Users/kobibornilla/Desktop/STATS 220/stats220/Project 2/yugioh-anime.gif)

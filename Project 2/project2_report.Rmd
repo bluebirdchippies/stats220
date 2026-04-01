@@ -3,28 +3,103 @@ title: "Project 2"
 author: "Armand Spencer"
 date: "2026-03-31"
 output: html_document
+subtitle: STATS 220 Semester One, 2026
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+```{css, echo = FALSE}
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+body {
+  font-family:  "Times New Roman", serif;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: linear-gradient(155deg, #B5E2FA, #F9F7F3,#EDDEA4, #F7A072 );
+  font-size: 15px;
+}
+p {
+    font-family: "Times New Roman", Helvetica, Roboto, sans-serif;
+    font-size: 15px;
+}
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+h1 {
+  font-family: Inter,  Helvetica , Roboto, sans-serif;
+  color: #2C3E50;
+  font-weight: 600;
+}
 
-```{r cars}
-summary(cars)
+h2 {
+  font_family: Inter, Helvetica , Roboto, sans-serif;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+h3 {
+  font-family:  Inter, Helvetica, Roboto, sans-serif;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+}
+
 ```
 
-## Including Plots
+## Introduction
+The focus of this collection of data was to see how long the average journey took to get to university. Austin and I conducted measured how long the journey took to get to university, we also put down the start time of the journey and the mode of transportation used. Whenever we had a journey from university to home or vice versa, we would record the duration and the start time.
 
-You can also embed plots, for example:
+Guideline 2 requires to only ask for data we actually needed. So the created survey only asked three questions: Mode of Transport, Duration of Travel, and Start time. All three vectors of data were used to create visualizations and do some minor analysis. The form was made so that for Mode of Travel, you could only pick between Car and Bus - as that was the only modes of transportation we used. This made it so that any data points in this vector would all be relevant. Additionally, for Duration of Travel, the form explicitly ask "How many minutes did it take" and so only receives answers in number of minutes. Lastly, when we would put down start time of journeys, the form is formatted in a way so that we can only put in a time of day.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Guideline 3 specifics to consider respondents. We kept the data anonymous by not asking personal details about the respondent as we only actually needed transport data. For this data collection, any information regarding the person was deemed irrelevant and thus was not needed.
+
+![](/Users/kobibornilla/Desktop/STATS 220/stats220/Project 2/scforp2.png)
+The data collected allows us to analyse patterns and relationships in our variables. We can view summaries, look at frequencies, create visualizations to paint us a picture of these data points. Especially with the travel mode, we can group datapoints by whether Car or Bus was used to view a relationship or a comparison between the two groups. From this we can draw conclusions about our data set using this information.
+
+For what I did, I looked at summary values. Including looking at max and min travel time in our data set. I did try look at the mean, but it wouldn't have meant too much unless I seperated the mean by travel mode. Which I did end up doing. compared mean travel time of Cars vs Bus by creating a new data frame that only shows the mean of Bus and Car. I also looked at bus vs car frequencies to see what was used more.
+
+Some of the things we can learn from analyzing the data includes:
+1. Comparing frequency of travel mode (Car or Bus)
+  - As this tells us what travel mode is more preferred or more convenient, which later we can ask why each mode is preferrable
+2.  Comparing average journey times of Car vs Bus
+  - We can learn what journey's take longer and learn why this is
+3.  Seeing the differences between times of day and see how it influences journey duration
+  - As we can learn how strongly duration of travel is influenced by traffic, and then also seeing which travel modes are influenced more by traffic
+
+Form design and data collection for this project were completed as a group. My group members were Austin and Armand (me).
+[STATS 220 Project 2- Reporting Form](https://docs.google.com/forms/d/1Eo0QLtm6oK_MJ4Po4s_fG-UC4LZ9NFVAPpwcWR1eWPw/viewform?edit_requested=true)
+
+## Dynamic Report
+[My Amazing Dynamic Report](https://bluebirdchippies.github.io/stats220/)
+
+## Creativity
+
+In terms of creativity, this project I tried to take a step further with the CSS and try to make the html page slightly more appealing to the eye. This involved doing a lot more research on what I can do. I looked for different fonts to use and saw what I liked and what looked good. I added the background to have a gradient colour wave. Utilising coolors.co to see what colours I saw looked nice.
+
+Although there was not a lot of data points, I did some minor analysis on the data we had. This mainly included comparing standard deviations. The significance of this is due to  the journey's being constantly University -> Home or Home -> University, subsequently the distance of the journey remains constant. This means that comparing standard deviations is essentially us comparing whether traffic influences car travel or bus travel more. As the  other main variable that influences duration of travel besides distance is traffic. Where the traffic is based upon what part of the day the travel is taking place. The only exception to this is weekends where people will not be clambering to get to work/school so there would be a lot less traffic. However as Austin or I don't go to university of weekends. We can safely assume that the only other important factor on the standard deviation is the level of influence traffic has on travel mode.
+
+And what I did find is that the standard deviation is lower for bus then it is for car
+
+## Learning Reflection
+
+Though it is not necessarily an idea, I was very pleased to learn about adding stuff into the ```{r} box. Such as fig.width and fig.height. This was very big for me because practically every time I looked at it I was always pretty confused with what I was looking at. Especially as whenever you open a new R markdown file, it shows a little explanation about markdown and the usage of {r} but I was still always perplexed about it until I started on this project.
+
+I would like to do some data pre processing stuff. Like SQL stuff I think. From what I remember, I enjoyed similar stuff to that but I think I would definitely enjoy learning about the merges and that stuff.
+
+Group work was pretty chill. We just had to make the survey and then put in data points together. It wasn't exactly group work but it did serve to help our assignments being completed. I was a little behind so Austin had a headstart and gave the idea of what type of data we should look for. And as we both go to university, he figured transportation would be a good idea. And it was, but it was a bit awkward to analyse, but nonetheless still good!
+
+## Appendix
+```{r file='exploration.R', eval=FALSE, echo=TRUE}
+
 ```
+```{r file='dynamic_report.Rmd', eval=FALSE, echo=TRUE}
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```
