@@ -161,4 +161,3 @@ paste("The standard deviation for Car is", sd_car, "while the standard deviation
 ```
 Which the above calculation proves our statement correct. The standard deviation for Car is higher then Bus. This shows us that the journeys by bus are a lot more consistent in duration then it is for car from out dataset. However as the standard deviation for bus is still a sizeable amount, we can infer that traffic and timing still does play a big factor in the duration of the journey. Although these factors are likely to influence car travel time to a stronger degree then it does for bus.
 
- #![](https://media1.tenor.com/m/AdaSVzqCxLIAAAAd/yugioh-anime.gif)
