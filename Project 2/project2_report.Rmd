@@ -78,7 +78,7 @@ Form design and data collection for this project were completed as a group. My g
 [STATS 220 Project 2- Reporting Form](https://docs.google.com/forms/d/1Eo0QLtm6oK_MJ4Po4s_fG-UC4LZ9NFVAPpwcWR1eWPw/viewform?edit_requested=true)
 
 ## Dynamic Report
-[My Amazing Dynamic Report](https://bluebirdchippies.github.io/stats220/)
+[My Amazing Dynamic Report](https://bluebirdchippies.github.io/stats220/Project%202/)
 
 ## Creativity
 
