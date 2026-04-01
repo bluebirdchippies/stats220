@@ -96,6 +96,8 @@ I would like to do some data pre processing stuff. Like SQL stuff I think. From 
 
 Group work was pretty chill. We just had to make the survey and then put in data points together. It wasn't exactly group work but it did serve to help our assignments being completed. I was a little behind so Austin had a headstart and gave the idea of what type of data we should look for. And as we both go to university, he figured transportation would be a good idea. And it was, but it was a bit awkward to analyse, but nonetheless still good!
 
+Things that make group work good is reliable communication. Even if it is sloppy communication. As long as it remains consistent, it makes group work so much more enjoyable. As long as I am responding to Austin and he is responding to me then that is perfect
+
 ## Appendix
 ```{r file='exploration.R', eval=FALSE, echo=TRUE}
 
