@@ -2,14 +2,18 @@
 title: "Project 3 Report"
 author: "Armand Spencer"
 date: "2026-04-28"
-output: html_document
+output:
+  html_document:
+    code_folding: hide
+subtitle: STATS 220 Semester One 2026
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
 library(tidyverse)
+library(knitr)
 
-selected_photos <- read_csv("/Users/kobibornilla/Desktop/STATS 220/stats220/Project 3/selected_photos.csv")
+selected_photos <- read_csv("selected_photos.csv")
 ```
 
 ```{css echo=FALSE}
@@ -35,7 +39,7 @@ h1 {
 }
 
 h2 {
-  font_family: Inter, Helvetica , Roboto, sans-serif;
+  font-family: Inter, Helvetica , Roboto, sans-serif;
   color: #2C3E50;
   font-weight: 600;
 }
@@ -55,17 +59,16 @@ img {
 }
 
 ```
-
 ## Introduction
 
-"Cool" "Lemurs"
+"Cool" "Meerkats"
 
-I picked these two words because I really like Lemurs and wanted a random adjective. So I picked "Cool". I felt like if I used a more niche or distinct adjective then I wouldn't get many good results. Also Lemurs are cool so it's a redundant term in my books.
+I picked these two words because I really like meerkats and wanted a random adjective. So I picked "Cool". I felt like if I used a more niche or distinct adjective then I wouldn't get many good results. Also meerkats are cool so it's a redundant term in my books.
 
-![Cool Lemurs](https://www.pexels.com/search/cool%20lemurs/) 
-![Image of Lemurs](/Users/kobibornilla/Desktop/STATS 220/stats220/Project 3/screenshotoflemurs.png)
+[Cool Meerkats](https://www.pexels.com/search/cool%20meerkats/) 
+![Image of Meerkats](screenshotofmeerkats.png)
 
-All photos generally show lemurs in their natural habitat. Some, but not many, of the photos show them in enclosures. They are mostly candid photos, though sometimes the lemur would notice the photographer and look into the camera. There is also a good mix of photos that are taken landscape vs portrait.
+All photos generally show meerkats in their natural habitat. Some, but not many, of the photos show them in enclosures. They are mostly candid photos, though sometimes the meerkats would notice the photographer and look into the camera. There is also a good mix of photos that are taken landscape vs portrait. They are also all VERY VERY CUTE.
 
 ```{r}
 table <- selected_photos %>% select(url)
@@ -92,7 +95,7 @@ total_width <- selected_photos$width %>%
   sum()
 
 ```
-There are 'r number_of_rows' in the selected photo csv. This is due to only 16 photographers using the term "Meerkats" in their url.
+There are `r number_of_rows` in the selected photo csv. This is due to only 16 photographers using the term "Meerkats" in their url.
 
 A Large image is defined as often exceeding 4000x6000 pixels. Of my 16 images, `r large_image` of them fit this description as being a large image for high-resolution photography
 
@@ -104,9 +107,9 @@ Though useless, the sum of all the widths in my data is `r total_width`.
 
 ## Creativity
 
-![My Meme](/Users/kobibornilla/Desktop/STATS 220/stats220/Project 3/creativity.gif)
+![My Meme](creativity.gif)
 
-I wasn't too creative this time. But in journey to create a meme, I needed to be able to zoom into the image because I needed to emphasies that the lemur is looking in the direction of the camera. So I looked for another magick function that could let me do this. I really enjoyed making this meme like usual.
+I wasn't too creative this time. But in journey to create a meme, I needed to be able to zoom into the image because I needed to emphasies that the meerkats is looking in the direction of the camera. So I looked for another magick function that could let me do this. I really enjoyed making this meme like usual. I believe this is relatively creative because I had to highlight the fact that the meerkat is looking straight into the camera, and not just that in this image there is a meerkat looking into the camera, so I had to find a way to do this.
 
 I did have a bit of fun with the ifelse function. Not exactly creative, but I wrote different strings for if the result is TRUE or FALSE. Not sure if that counts as creative, but I did that.
 

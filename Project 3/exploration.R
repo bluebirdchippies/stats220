@@ -55,7 +55,7 @@ paste0("the average height for photographers with names shorter than mine is: ",
 # Meme MAKING TIME
 
 main_image_url <- selected_photos$landscape[8]
-main_image <-image_read(path = large_url)
+main_image <-image_read(path = main_image_url)
 main_image_nearly <- image_scale(main_image, "1200") 
 main_image_final <- main_image_nearly %>%
   image_crop("500x281", gravity = "center") %>% # zooms into the lemur face

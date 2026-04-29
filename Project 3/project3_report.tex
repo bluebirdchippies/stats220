@@ -1,0 +1,530 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Project 3 Report},
+  pdfauthor={Armand Spencer},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project 3 Report}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{STATS 220 Semester One 2026}
+\author{Armand Spencer}
+\date{2026-04-28}
+
+\begin{document}
+\maketitle
+
+\subsection{Introduction}\label{introduction}
+
+``Cool'' ``Meerkats''
+
+I picked these two words because I really like meerkats and wanted a
+random adjective. So I picked ``Cool''. I felt like if I used a more
+niche or distinct adjective then I wouldn't get many good results. Also
+meerkats are cool so it's a redundant term in my books.
+
+\href{https://www.pexels.com/search/cool\%20meerkats/}{Cool Meerkats}
+\pandocbounded{\includegraphics[keepaspectratio]{screenshotofmeerkats.png}}
+
+All photos generally show meerkats in their natural habitat. Some, but
+not many, of the photos show them in enclosures. They are mostly candid
+photos, though sometimes the lemur would notice the photographer and
+look into the camera. There is also a good mix of photos that are taken
+landscape vs portrait. They are also all VERY VERY CUTE.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{table }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(url)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(table) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+url
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\url{https://www.pexels.com/photo/close-up-photograph-of-meerkats-11922554/} \\
+\url{https://www.pexels.com/photo/meerkats-sitting-on-tree-trunk-17526413/} \\
+\url{https://www.pexels.com/photo/meerkats-standing-under-heat-lamp-in-a-warm-setting-29284842/} \\
+\url{https://www.pexels.com/photo/family-of-meerkats-in-natural-habitat-37094402/} \\
+\url{https://www.pexels.com/photo/a-furry-meerkats-together-7188933/} \\
+\url{https://www.pexels.com/photo/close-up-of-meerkats-6272537/} \\
+\url{https://www.pexels.com/photo/meerkats-on-rocks-in-sao-paulo-zoo-33640434/} \\
+\url{https://www.pexels.com/photo/meerkats-in-the-desert-11025911/} \\
+\url{https://www.pexels.com/photo/a-mob-of-meerkats-9450969/} \\
+\url{https://www.pexels.com/photo/curious-meerkats-observing-their-surroundings-36484391/} \\
+\url{https://www.pexels.com/photo/meerkats-on-a-desert-18157872/} \\
+\url{https://www.pexels.com/photo/adorable-meerkats-standing-in-natural-habitat-28656506/} \\
+\url{https://www.pexels.com/photo/brown-meerkats-in-close-up-photography-6727776/} \\
+\url{https://www.pexels.com/photo/two-meerkats-observing-in-a-natural-habitat-35155650/} \\
+\url{https://www.pexels.com/photo/meerkats-beside-a-tree-7722785/} \\
+\url{https://www.pexels.com/photo/meerkats-on-the-sand-6796608/} \\
+\end{longtable}
+
+\subsection{Key features of my selected
+Photos}\label{key-features-of-my-selected-photos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{number\_of\_rows }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(selected\_photos)}
+
+\NormalTok{large\_image }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(width, height) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(width }\SpecialCharTok{\textgreater{}=} \DecValTok{4000} \SpecialCharTok{|}\NormalTok{ height }\SpecialCharTok{\textgreater{}=} \DecValTok{6000}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{nrow}\NormalTok{()}
+
+\NormalTok{photographer\_count }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(photographer, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{longer\_than\_my\_name }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{str\_detect}\NormalTok{(photographer\_longer\_than\_my\_name, }\StringTok{"nah YEA"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{nrow}\NormalTok{()}
+
+\NormalTok{total\_width }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{width }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sum}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+There are 16 in the selected photo csv. This is due to only 16
+photographers using the term ``Meerkats'' in their url.
+
+A Large image is defined as often exceeding 4000x6000 pixels. Of my 16
+images, 7 of them fit this description as being a large image for
+high-resolution photography
+
+Out of the 16 photographers, the photographer who appeared the most in
+my selected\_photos csv was Wayne Jackson, who appeared a total of 2
+times.
+
+There are 5 number of photographers whose name is longer then mine is.
+
+Though useless, the sum of all the widths in my data is
+\ensuremath{6.8199\times 10^{4}}.
+
+\subsection{Creativity}\label{creativity}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{creativity.gif}}
+\caption{My Meme}
+\end{figure}
+
+I wasn't too creative this time. But in journey to create a meme, I
+needed to be able to zoom into the image because I needed to emphasies
+that the meerkats is looking in the direction of the camera. So I looked
+for another magick function that could let me do this. I really enjoyed
+making this meme like usual.
+
+I did have a bit of fun with the ifelse function. Not exactly creative,
+but I wrote different strings for if the result is TRUE or FALSE. Not
+sure if that counts as creative, but I did that.
+
+Now that I think about it, something different I did do was made a new
+variable (via mutate) if the photographers name had more characters than
+my name, which is not CRAZY creative but its not common. I also made a
+new variable if the photographer calls them ``Meerkats'' or ``Meercats''
+and then later only included the rows where they were called Meerkats.
+
+I also had to be a little creative when making the summary values.
+Especially if I wanted to find summary values that give somewhat useful
+information regarding the dataset. Like I made a new column for if the
+photographers names were larger then mine. And then in exploration.R I
+had found the mean height grouped by whether their names were bigger
+then mine or not.
+
+\subsection{Learning reflection}\label{learning-reflection}
+
+I really like using the ifelse function. One important idea I learnt is
+how to manipulate variables in a dataframe in R. I've done something
+similar in python and I can say, doing it in R is a lot better and a lot
+easier. One thing I also have learnt is how valuable the pipe is, it
+makes everything so much easier.
+
+I want to work with databases, in 3A, we briefly touched on SQL and SQL
+functions. I would like to expand my knowledge in that region, or
+perhaps do some work with relatively humongous databases. Otherwise,
+this API stuff I have never touched upon in my life and I didn't know it
+exists so I would be happy to take a deeper dive into using APIs.
+
+\subsection{Appendix}\label{appendix}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(httr)}
+\FunctionTok{library}\NormalTok{(magick)}
+
+\NormalTok{api\_key }\OtherTok{\textless{}{-}} \StringTok{"w3fvkUmcE3AzHRStvJMJ7ra0zfxyJ97qDpf9rTw5qwLSryDsNB5mk5Jt"}
+
+\NormalTok{url }\OtherTok{\textless{}{-}} \StringTok{"https://api.pexels.com/v1/search?query=cool\%20meerkats\&per\_page=80\&limit=80"}
+
+\NormalTok{response }\OtherTok{\textless{}{-}}\NormalTok{ httr}\SpecialCharTok{::}\FunctionTok{GET}\NormalTok{(url, }
+                      \FunctionTok{add\_headers}\NormalTok{(}\AttributeTok{Authorization =}\NormalTok{ api\_key))}
+
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ httr}\SpecialCharTok{::}\FunctionTok{content}\NormalTok{(response, }
+                      \AttributeTok{as =} \StringTok{"parsed"}\NormalTok{, }
+                      \AttributeTok{type =} \StringTok{"application/json"}\NormalTok{)}
+
+\NormalTok{photo\_data }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{photos =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{photos) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{unnest\_wider}\NormalTok{(photos) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{unnest\_wider}\NormalTok{(src)}
+
+\NormalTok{selected\_photos }\OtherTok{\textless{}{-}}\NormalTok{ photo\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{photographer\_longer\_than\_my\_name =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{str\_count}\NormalTok{(photographer) }\SpecialCharTok{\textgreater{}} \DecValTok{13}\NormalTok{, }\StringTok{"nah YEA"}\NormalTok{, }\StringTok{"Yea NAH nah yea nah"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# just wanted to see if the photographers name is longer then my name "Armand Spencer" (including spaces)}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{name\_words =} \FunctionTok{str\_count}\NormalTok{(photographer, }\StringTok{" "}\NormalTok{) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# counts number of words in photographers name}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{meerkats\_or\_meercats =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{str\_detect}\NormalTok{(url, }\StringTok{"meerkats"}\NormalTok{), }\StringTok{"MEERKATS"}\NormalTok{, }\StringTok{"weirdos"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\# sees what spelling they use for meerkats}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{str\_detect}\NormalTok{(meerkats\_or\_meercats, }\StringTok{"MEERKATS"}\NormalTok{))}
+ \CommentTok{\# filters based on whether they used MEERKATS or not, cause I only trust people who write Meerkats and NOT Meercats. It looks weird!}
+ \CommentTok{\# additionally, out of 80 original rows, only 16 uses meerkats so the 3rd mutate category does do something}
+\FunctionTok{write\_csv}\NormalTok{(selected\_photos, }\StringTok{"selected\_photos.csv"}\NormalTok{)}
+
+\CommentTok{\# Summary Values}
+
+\NormalTok{mean\_height }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{height }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mean}\NormalTok{(}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{signif}\NormalTok{(}\DecValTok{4}\NormalTok{) }\CommentTok{\#mean height}
+\NormalTok{mean\_width }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{width }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mean}\NormalTok{(}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{signif}\NormalTok{(}\DecValTok{4}\NormalTok{) }\CommentTok{\# mean width}
+\NormalTok{mean\_size }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"The mean size of photos in the selected photos are: "}\NormalTok{, mean\_width, }\StringTok{"x"}\NormalTok{, mean\_height) }\CommentTok{\# just shows the mean values together}
+\NormalTok{mean\_size}
+
+\NormalTok{max\_name\_size }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(selected\_photos}\SpecialCharTok{$}\NormalTok{name\_words) }\CommentTok{\# shows the highest number of words in a name}
+\FunctionTok{paste0}\NormalTok{(}\StringTok{"The name with the most number of words has "}\NormalTok{ ,max\_name\_size, }\StringTok{" words in it."}\NormalTok{)}
+
+\NormalTok{summary\_for\_longer\_than\_my\_name }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(photographer\_longer\_than\_my\_name) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#grouped by Yea NAH nah yea nah or nah Yea}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_height\_summary =} \FunctionTok{signif}\NormalTok{(}\FunctionTok{mean}\NormalTok{(height,}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\DecValTok{4}\NormalTok{) ) }\CommentTok{\# grabbed mean height of the groups based on Yea NAH or nah Yea}
+\NormalTok{nah }\OtherTok{\textless{}{-}}\NormalTok{summary\_for\_longer\_than\_my\_name }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(mean\_height\_summary) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{yea }\OtherTok{\textless{}{-}}\NormalTok{summary\_for\_longer\_than\_my\_name }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(mean\_height\_summary) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The mean height of photos taken by photographers with names longer then mine is:"}\NormalTok{, yea, }\StringTok{"and the mean height of photos taken by photographers }
+\StringTok{      with names shorter than mine is:"}\NormalTok{ ,nah)}
+
+\NormalTok{average\_height\_for\_photographer\_shorter\_than\_my\_name }\OtherTok{\textless{}{-}}\NormalTok{ summary\_for\_longer\_than\_my\_name}\SpecialCharTok{$}\NormalTok{mean\_height\_summary[}\DecValTok{1}\NormalTok{] }
+\CommentTok{\# grabs the first row, which is Yea Nah nah yea nah, so the average height for names of photographers shorter then mine}
+\NormalTok{average\_height\_for\_photographer\_shorter\_than\_my\_name}
+\FunctionTok{paste0}\NormalTok{(}\StringTok{"the average height for photographers with names shorter than mine is: "}\NormalTok{, average\_height\_for\_photographer\_shorter\_than\_my\_name)}
+
+\CommentTok{\# Meme MAKING TIME}
+
+\NormalTok{main\_image\_url }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{landscape[}\DecValTok{8}\NormalTok{]}
+\NormalTok{main\_image }\OtherTok{\textless{}{-}}\FunctionTok{image\_read}\NormalTok{(}\AttributeTok{path =}\NormalTok{ large\_url)}
+\NormalTok{main\_image\_nearly }\OtherTok{\textless{}{-}} \FunctionTok{image\_scale}\NormalTok{(main\_image, }\StringTok{"1200"}\NormalTok{) }
+\NormalTok{main\_image\_final }\OtherTok{\textless{}{-}}\NormalTok{ main\_image\_nearly }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{image\_crop}\NormalTok{(}\StringTok{"500x281"}\NormalTok{, }\AttributeTok{gravity =} \StringTok{"center"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# zooms into the lemur face}
+  \FunctionTok{image\_scale}\NormalTok{(}\StringTok{"1200"}\NormalTok{) }\CommentTok{\# resizes back to fit meme size}
+
+
+
+\NormalTok{secondary\_image\_url }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{landscape[}\DecValTok{10}\NormalTok{]}
+\NormalTok{secondary\_image }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(}\AttributeTok{path=}\NormalTok{secondary\_image\_url)}
+\NormalTok{secondary\_image\_nearly }\OtherTok{\textless{}{-}} \FunctionTok{image\_scale}\NormalTok{(secondary\_image, }\StringTok{"1200"}\NormalTok{)}
+\NormalTok{secondary\_image\_final }\OtherTok{\textless{}{-}}\NormalTok{ secondary\_image\_nearly }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{image\_crop}\NormalTok{(}\StringTok{"800x450 + ({-}100) + 200"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# zooms into lemur face again for second image}
+  \FunctionTok{image\_scale}\NormalTok{(}\StringTok{"1200"}\NormalTok{) }\CommentTok{\# resizes to fit meme size}
+\NormalTok{secondary\_image\_final}
+
+\NormalTok{tertiary\_image\_url }\OtherTok{\textless{}{-}}\NormalTok{ selected\_photos}\SpecialCharTok{$}\NormalTok{landscape[}\DecValTok{12}\NormalTok{]}
+\NormalTok{tertiary\_image }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(}\AttributeTok{path=}\NormalTok{tertiary\_image\_url)}
+\NormalTok{tertiary\_image\_final }\OtherTok{\textless{}{-}} \FunctionTok{image\_scale}\NormalTok{(tertiary\_image, }\StringTok{"1200"}\NormalTok{)}
+
+
+\NormalTok{text1 }\OtherTok{\textless{}{-}} \FunctionTok{image\_blank}\NormalTok{(}\AttributeTok{width =}\DecValTok{1200}\NormalTok{,}
+                     \AttributeTok{height =}\DecValTok{200}\NormalTok{, }
+                     \AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{image\_annotate}\NormalTok{(}\AttributeTok{text =} \StringTok{"Me : Yo bro, DON\textquotesingle{}T turn around but{-}"}\NormalTok{,}
+                 \AttributeTok{gravity =} \StringTok{"Center"}\NormalTok{, }
+                 \AttributeTok{size =} \DecValTok{40}\NormalTok{,}
+                 \AttributeTok{color =} \StringTok{"black"}\NormalTok{,}
+                 \AttributeTok{font =} \StringTok{"Impact"}\NormalTok{)}
+
+\NormalTok{text2 }\OtherTok{\textless{}{-}} \FunctionTok{image\_blank}\NormalTok{(}\AttributeTok{width =}\DecValTok{1200}\NormalTok{,}
+                     \AttributeTok{height =}\DecValTok{200}\NormalTok{, }
+                     \AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{image\_annotate}\NormalTok{(}\AttributeTok{text =} \StringTok{"Bro 0.00001s later"}\NormalTok{,}
+                 \AttributeTok{gravity =} \StringTok{"Center"}\NormalTok{, }
+                 \AttributeTok{size =} \DecValTok{40}\NormalTok{,}
+                 \AttributeTok{color =} \StringTok{"black"}\NormalTok{,}
+                 \AttributeTok{font =} \StringTok{"Impact"}\NormalTok{)}
+
+\NormalTok{frame1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(text1, tertiary\_image\_final)}
+\NormalTok{frame2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(text2, secondary\_image\_nearly)}
+\NormalTok{frame3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(text2, secondary\_image\_final)}
+\NormalTok{frame4 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(text2, main\_image\_nearly)}
+\NormalTok{frame5 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(text2, main\_image\_final) }\CommentTok{\# creates the image vector}
+
+\NormalTok{frame1\_f }\OtherTok{\textless{}{-}} \FunctionTok{image\_append}\NormalTok{(frame1, }\AttributeTok{stack =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{frame2\_f }\OtherTok{\textless{}{-}} \FunctionTok{image\_append}\NormalTok{(frame2, }\AttributeTok{stack =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{frame3\_f }\OtherTok{\textless{}{-}} \FunctionTok{image\_append}\NormalTok{(frame3, }\AttributeTok{stack =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{frame4\_f }\OtherTok{\textless{}{-}} \FunctionTok{image\_append}\NormalTok{(frame4, }\AttributeTok{stack =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{frame5\_f }\OtherTok{\textless{}{-}} \FunctionTok{image\_append}\NormalTok{(frame5, }\AttributeTok{stack =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# adds the two images together}
+
+\NormalTok{animation }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(frame1\_f, frame2\_f, frame3\_f, frame4\_f, frame5\_f)}
+
+\NormalTok{lemur\_meme }\OtherTok{\textless{}{-}} \FunctionTok{image\_animate}\NormalTok{(animation, }\AttributeTok{fps=}\DecValTok{1}\NormalTok{) }\CommentTok{\# gif completed}
+
+\NormalTok{upload }\OtherTok{\textless{}{-}}\FunctionTok{image\_write}\NormalTok{(lemur\_meme, }\StringTok{"creativity.gif"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{title}\SpecialCharTok{:} \StringTok{"Project 3 Report"}
+\NormalTok{author}\SpecialCharTok{:} \StringTok{"Armand Spencer"}
+\NormalTok{date}\SpecialCharTok{:} \StringTok{"2026{-}04{-}28"}
+\NormalTok{output}\SpecialCharTok{:}
+\NormalTok{  pdf\_document}\SpecialCharTok{:}\NormalTok{ default}
+\NormalTok{  html\_document}\SpecialCharTok{:}
+\NormalTok{    code folding}\SpecialCharTok{:}\NormalTok{ hide}
+\NormalTok{subtitle}\SpecialCharTok{:}\NormalTok{ STATS }\DecValTok{220}\NormalTok{ Semester One }\DecValTok{2026}
+\SpecialCharTok{{-}{-}{-}}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{r setup, include=FALSE\}}
+\AttributeTok{knitr::opts\_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)}
+\AttributeTok{library(tidyverse)}
+\AttributeTok{library(knitr)}
+
+\AttributeTok{selected\_photos \textless{}{-} read\_csv("selected\_photos.csv")}
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{css echo=FALSE\}}
+
+\AttributeTok{body \{}
+\AttributeTok{  font{-}family:  "Times New Roman", serif;}
+\AttributeTok{  line{-}height: 1.6;}
+\AttributeTok{  max{-}width: 900px;}
+\AttributeTok{  margin: auto;}
+\AttributeTok{  padding: 20px;}
+\AttributeTok{  background: linear{-}gradient(155deg, \#B5E2FA, \#F9F7F3,\#EDDEA4, \#F7A072 );}
+\AttributeTok{  font{-}size: 15px;}
+\AttributeTok{\}}
+\AttributeTok{p \{}
+\AttributeTok{    font{-}family: "Times New Roman", Helvetica, Roboto, sans{-}serif;}
+\AttributeTok{    font{-}size: 15px;}
+\AttributeTok{\}}
+
+\AttributeTok{h1 \{}
+\AttributeTok{  font{-}family: Inter,  Helvetica , Roboto, sans{-}serif;}
+\AttributeTok{  color: \#2C3E50;}
+\AttributeTok{  font{-}weight: 600;}
+\AttributeTok{\}}
+
+\AttributeTok{h2 \{}
+\AttributeTok{  font{-}family: Inter, Helvetica , Roboto, sans{-}serif;}
+\AttributeTok{  color: \#2C3E50;}
+\AttributeTok{  font{-}weight: 600;}
+\AttributeTok{\}}
+
+\AttributeTok{h3 \{}
+\AttributeTok{  font{-}family:  Inter, Helvetica, Roboto, sans{-}serif;}
+\AttributeTok{  color: \#2C3E50;}
+\AttributeTok{  font{-}weight: 600;}
+\AttributeTok{\}}
+
+\AttributeTok{img \{}
+\AttributeTok{  max{-}width: 100\%;}
+\AttributeTok{  height: auto;}
+\AttributeTok{  display: block;}
+\AttributeTok{  margin: 0 auto;}
+\AttributeTok{  }
+\AttributeTok{\}}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\DocumentationTok{\#\# Introduction}
+
+\StringTok{"Cool"} \StringTok{"Meerkats"}
+
+\NormalTok{I picked these two words because I really like meerkats and wanted a random adjective. So I picked }\StringTok{"Cool"}\NormalTok{. I felt like }\ControlFlowTok{if}\NormalTok{ I used a more niche or distinct adjective then I wouldn}\StringTok{\textquotesingle{}t get many good results. Also meerkats are cool so it\textquotesingle{}}\NormalTok{s a redundant term }\ControlFlowTok{in}\NormalTok{ my books.}
+
+\NormalTok{[Cool Meerkats](https}\SpecialCharTok{:}\ErrorTok{//}\NormalTok{www.pexels.com}\SpecialCharTok{/}\NormalTok{search}\SpecialCharTok{/}\NormalTok{cool\%}\DecValTok{20}\NormalTok{meerkats}\SpecialCharTok{/}\NormalTok{) }
+\SpecialCharTok{!}\NormalTok{[Image of Meerkats](screenshotofmeerkats.png)}
+
+\NormalTok{All photos generally show meerkats }\ControlFlowTok{in}\NormalTok{ their natural habitat. Some, but not many, of the photos show them }\ControlFlowTok{in}\NormalTok{ enclosures. They are mostly candid photos, though sometimes the lemur would notice the photographer and look into the camera. There is also a good mix of photos that are taken landscape vs portrait. They are also all VERY VERY CUTE.}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{r\}}
+\AttributeTok{table \textless{}{-} selected\_photos \%\textgreater{}\% select(url)}
+\AttributeTok{knitr::kable(table) }
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+
+\DocumentationTok{\#\# Key features of my selected Photos}
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{r\}}
+\AttributeTok{number\_of\_rows \textless{}{-} nrow(selected\_photos)}
+
+\AttributeTok{large\_image \textless{}{-} selected\_photos \%\textgreater{}\%}
+\AttributeTok{  select(width, height) \%\textgreater{}\%}
+\AttributeTok{  filter(width \textgreater{}= 4000 | height \textgreater{}= 6000) \%\textgreater{}\%}
+\AttributeTok{  nrow()}
+
+\AttributeTok{photographer\_count \textless{}{-} selected\_photos \%\textgreater{}\%}
+\AttributeTok{  count(photographer, sort = TRUE)}
+
+\AttributeTok{longer\_than\_my\_name \textless{}{-} selected\_photos \%\textgreater{}\%}
+\AttributeTok{  filter(str\_detect(photographer\_longer\_than\_my\_name, "nah YEA")) \%\textgreater{}\%}
+\AttributeTok{  nrow()}
+
+\AttributeTok{total\_width \textless{}{-} selected\_photos$width \%\textgreater{}\%}
+\AttributeTok{  sum()}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\NormalTok{There are }\StringTok{\textasciigrave{}}\AttributeTok{r number\_of\_rows}\StringTok{\textasciigrave{}} \ControlFlowTok{in}\NormalTok{ the selected photo csv. This is due to only }\DecValTok{16}\NormalTok{ photographers using the term }\StringTok{"Meerkats"} \ControlFlowTok{in}\NormalTok{ their url.}
+
+\NormalTok{A Large image is defined as often exceeding }\DecValTok{4000}\NormalTok{x6000 pixels. Of my }\DecValTok{16}\NormalTok{ images, }\StringTok{\textasciigrave{}}\AttributeTok{r large\_image}\StringTok{\textasciigrave{}}\NormalTok{ of them fit this description as being a large image }\ControlFlowTok{for}\NormalTok{ high}\SpecialCharTok{{-}}\NormalTok{resolution photography}
+
+\NormalTok{Out of the }\DecValTok{16}\NormalTok{ photographers, the photographer who appeared the most }\ControlFlowTok{in}\NormalTok{ my selected\_photos csv was }\StringTok{\textasciigrave{}}\AttributeTok{r photographer\_count \%\textgreater{}\% select(photographer) \%\textgreater{}\% slice(1)}\StringTok{\textasciigrave{}}\NormalTok{, who appeared a total of }\StringTok{\textasciigrave{}}\AttributeTok{r photographer\_count \%\textgreater{}\% select(n) \%\textgreater{}\% slice(1)}\StringTok{\textasciigrave{}}\NormalTok{ times.}
+
+\NormalTok{There are }\StringTok{\textasciigrave{}}\AttributeTok{r longer\_than\_my\_name}\StringTok{\textasciigrave{}}\NormalTok{ number of photographers whose name is longer then mine is.}
+
+\NormalTok{Though useless, the sum of all the widths }\ControlFlowTok{in}\NormalTok{ my data is }\StringTok{\textasciigrave{}}\AttributeTok{r total\_width}\StringTok{\textasciigrave{}}\NormalTok{.}
+
+\DocumentationTok{\#\# Creativity}
+
+\SpecialCharTok{!}\NormalTok{[My Meme](creativity.gif)}
+
+\NormalTok{I wasn}\StringTok{\textquotesingle{}t too creative this time. But in journey to create a meme, I needed to be able to zoom into the image because I needed to emphasies that the meerkats is looking in the direction of the camera. So I looked for another magick function that could let me do this. I really enjoyed making this meme like usual.}
+
+\StringTok{I did have a bit of fun with the ifelse function. Not exactly creative, but I wrote different strings for if the result is TRUE or FALSE. Not sure if that counts as creative, but I did that.}
+
+\StringTok{Now that I think about it, something different I did do was made a new variable (via mutate) if the photographers name had more characters than my name, which is not CRAZY creative but its not common. I also made a new variable if the photographer calls them "Meerkats" or "Meercats" and then later only included the rows where they were called Meerkats.}
+
+\StringTok{I also had to be a little creative when making the summary values. Especially if I wanted to find summary values that give somewhat useful information regarding the dataset. Like I made a new column for if the photographers names were larger then mine. And then in exploration.R I had found the mean height grouped by whether their names were bigger then mine or not. }
+
+
+\StringTok{\#\# Learning reflection}
+
+\StringTok{I really like using the ifelse function. One important idea I learnt is how to manipulate variables in a dataframe in R. I\textquotesingle{}}\NormalTok{ve done something similar }\ControlFlowTok{in}\NormalTok{ python and I can say, doing it }\ControlFlowTok{in}\NormalTok{ R is a lot better and a lot easier. One thing I also have learnt is how valuable the pipe is, it makes everything so much easier.}
+
+\NormalTok{I want to work with databases, }\ControlFlowTok{in} \DecValTok{3}\NormalTok{A, we briefly touched on SQL and SQL functions. I would like to expand my knowledge }\ControlFlowTok{in}\NormalTok{ that region, or perhaps do some work with relatively humongous databases. Otherwise, this API stuff I have never touched upon }\ControlFlowTok{in}\NormalTok{ my life and I didn}\StringTok{\textquotesingle{}t know it exists so I would be happy to take a deeper dive into using APIs.}
+
+\StringTok{\#\# Appendix}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r file=\textquotesingle{}}\NormalTok{exploration.R}\StringTok{\textquotesingle{}, eval=FALSE, echo=TRUE\}}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r file=\textquotesingle{}}\NormalTok{project3\_report.Rmd}\StringTok{\textquotesingle{}, eval=FALSE, echo=TRUE\}}
+
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
