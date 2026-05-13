@@ -1,0 +1,94 @@
+---
+title: "Creating Images with R"
+subtitle: "I am a Sunflower"
+author: "Armand Spencer"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{css}
+
+body {
+  background-color: #618b4a;
+}
+
+h1 {
+  color:#291720;
+}
+
+h2 {
+ color:#291720;
+}
+
+p {
+  font-size: 20px;
+  color:#0c0a3e
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+}
+}
+```
+
+## Project requirements
+![Screenshot of my files proving I have the project requirements](/Users/kobibornilla/Desktop/STATS 220/Project 1/screenshotformeme.png)
+
+## Inspo meme
+![](/Users/kobibornilla/Desktop/STATS 220/Project 1/inspomeme.jpeg)
+This meme originates from one of the greatest games of all time - Plants vs Zombies Garden Warfare 2. It's Key Components  is the sunflower smile. Personally, I love this game and I think this specific smile I think looks extremely funny. I strive to smile like this when I smile. I wish more people were like this sunflower. The text does not matter as much, just any scenario you would do a smile like this.
+
+## My meme
+![](/Users/kobibornilla/Desktop/STATS 220/Project 1/meme.png) 
+I got another sunflower image and put a statement funny only to me and Austin, and potentially to other people who look at this image and understand the context. Especially in the scenario where your friend does actually run over five children, and you have to sit there, look at him and wonder if this guy is a psychopath or not. In the likely scenario he is, you would want to increase your rate of survival by showing you are non-aggressive. This goal can be completed by smiling. And this is the friendlist smile ever.
+
+Albeit, my meme is extremely similar to the inspiration. But I guess thats the vision I had. I wanted to use the same image for different context and I found that to be extremely funny.
+
+## My animated meme 
+![](/Users/kobibornilla/Desktop/STATS 220/Project 1/meme.gif)
+
+## Creativity
+I would say my creativity mostly comes from my choice of image. I believe that whoever uses the sunflower meme such as I have already demonstrated their creative ability just due to that choice. In addition to that, I have attached another meme I made from an actual gif because I got inspired to make another meme. Making memes in R is a new skill for me so see below for my new meme. In which, what we did to make a meme with just images does not work if the image initially is a gif. Subsequently, I had to include this other function:
+
+*done <- image_apply(mad_small, function(frame) {
+   \n image_append(c(words, frame), stack = TRUE)
+})*
+
+Which was REALLY ANNOYING, because I had to search up how to do it. I also **love** this Danganronpa meme so I had to find a way to utilize it. 
+
+I can't say that my project meme was extremely creative, but I had a good time learning how to make it. Austin certainly had a good time looking at my meme too and I will probably be making more stupid memes in the future. I incorporated a few personal elements such as the caption. One idea that makes it a bit more funny to me was because out of all my friends; Austin is probably one of the least likely to do something extreme or at least presents himself to be least likely. Furthermore, Austin laughing at this meme made me decide on solidifying it as what I was going to do.
+
+Additionally, I did use more CSS to make the file look nicer. I think it looked very ugly before and it still looks ugly now but I don't know much on CSS and its not a hole I am willing to dig myself into until a tiny bit later. I used coolors to find colours that I think looked nice as well. The CSS for the img was because the images were cutting into paragraphs and making it ugly so I found a solution online for it.
+
+![](/Users/kobibornilla/Desktop/STATS 220/Project 1/dml.gif)
+
+
+## Learning reflection
+I enjoyed learning how to use R properly. Learning the proper formatting, the usage of the pipes, the <- signs instead of =. Additionally, I really enjoyed simply making memes as showed above. Not only this, I am pretty intrigued by the mixing of different languages to create an end product - the usage of CSS, HTML and R. I never knew that it was always a mixing of languages that created websites and products. I think that idea is pretty neat, however it just means I have to learn more langauges.  I don't have much topics or subjects in data technology I am curious about simply because I don't know much about it. I am interested in potentially utilising other languages, perhaps finding more efficient ways to do data work. But my curiousity is limited by my knowledge on the topic.
+
+## Appendix
+
+<mark>Do not change, edit, or remove the `R` chunk included below.</mark> 
+
+If you are working within RStudio and within your Project1 RStudio project (check the top right-hand corner says "Project1"), then the code from the `meme.R` script will be displayed below.
+
+This code needs to be visible for your project to be marked appropriately, as some of the criteria are based on this code being submitted.
+
+
+```{r file='meme.R', eval=FALSE, echo=TRUE}
+
+```
+
+## Additional Meme Code
+
+```{r file='danganronpa.R', eval=FALSE, echo=TRUE}
+
+```
+

@@ -1,0 +1,115 @@
+---
+title: "Project 4"
+author: "Armand Spencer"
+date: "2026-05-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{css, echo = FALSE}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #f7f3ed;
+  color: #2b2b2b;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #7b3f61;
+  font-weight: 700;
+}
+
+h1 {
+  border-bottom: 3px solid #d7af70;
+  padding-bottom: 10px;
+}
+
+h2 {
+  margin-top: 35px;
+  border-left: 6px solid #e76b74;
+  padding-left: 12px;
+}
+
+p {
+  font-size: 16px;
+}
+
+img {
+  border-radius: 12px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.18);
+  margin: 15px 0;
+}
+
+pre {
+  background-color: #2b2b2b;
+  color: #f8f8f2;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+code {
+  background-color: #eee1d2;
+  color: #7b3f61;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+blockquote {
+  border-left: 5px solid #d7af70;
+  background-color: #fffaf2;
+  padding: 12px 18px;
+  font-style: italic;
+}
+
+```
+
+## Introduction
+
+The focus of this data collection was to see how long our journey's were between university and our respective homes. Observations were made everytime we had a journey or when we remembered to put down observations. We recorded: Travel mode (car/bus), duration of travel, and start time of journey.
+
+Austin and I were the two individuals who submitted observations. We did not change the google form from Project 2 and this was done because there simply was no need. 
+
+When I was making my data visualizations. I was stuck in a place where I had to fulfill the pre-requisites for our graphs while trying to make different graphs to what I did in project 2. As a result of this, I instead made a bunch of datasets that I could potentially work with and turn into a visualisation before deciding which ones to actually do. So I didn't actually pick variables to focus on, I just did as many as I can.
+
+What ended up happening was that I thought it would be funny to make visualisations on the timestamps of our data entries. This was initially done because we had to create at least one visualisation utilising lubridate. Subsequently, I went a bit away from the actual observations and made visualisations from metadata. 
+
+One of the variables I did end up doing (whilst under the impression I might not even use it), was making new variables using case_when(). I created bins for time of day. So one tibble I made included: Morning Peak, Afternoon Peak, and Off peak. In relation to traffic. The other tibble I made included: Morning, Afternoon, Evening, and Night. I ended up using the Peak times tibble as I focused a lot on times where it should be peak traffic hours in project 2. Additionally, the reason why I chose to create bins is cause I had to do the exact same thing last year using python and so I took inspiration from that.
+
+I used three different graph types: column, box/jitter, and line/point graph. 
+
+Column is a staple to use, and kind of the only one I can do to compare means (which I did for the first graph). But I did change things by using position = dodge so I could compare means of travel time by travel mode as well as whether it was in peak or offpeak hours.
+
+For the box/jitter graph, I took inspiration from the labs we did. And although I have an inkling of a feeling that a box plot was not the best choice for displaying this kind of data, but I wanted to compare means so I chose that one.
+
+I picked the line/point graph because I thought of strava (the sports tracking app). And one thing strava does is count the number of aggregate kilometres you run/row/bike/etc across each month and displays it to you in a line graph. So I saw that and thought this is how I want my data to look.
+
+In my line graph, it shows a diaganole line from Apr 1 to about May 4. Which is a slight misinterpretation as it shows that data was added steadily between those two dates. Which is not true, but the only way I saw how to fix this is by putting in fake data and thought that was a bit far out of my reach so I did not do that.
+
+I also really wanted to do a heatmap for my graph, but I didn't have three sets of continuous data so I couldn't do that either
+
+
+
+
+
+## Visual data Story
+
+
+I wouldn't say this is extremely creative, but I put a lot of effort into the relative analysis on the graphs that I had chosen to make. One creative thing I did do was choosing to analyse meta-data instead of the observed data. I explained I did this because we had to utilise lubricate and work with the timestamps, and this was seemingly the best way to do so. If Austin does the same thing then just know I told him to do this. And it was quite fun working on meta data instead of regular data - it made me feel special. I guess making bins to make it easier to work on the data is also slighty creative to have a better insight on my data. I also really like the CSS used
+
+## Learning Reflection
+
+I set in stone how to properly make visualisations using ggplot. Which is the whole point but it succeeded. I know how to do them, and what I should do while doing them. Something I did learn doing this project is how many arguments you can technically have within theme() inside ggplot. Like it is an abysmal amount, and if you didn't know that, I suggest you check it out cause theres genuinely a billion of them.
+
+I don't have something more that I am curious about exploring further but I'm excited what comes next cause I really like what I have learnt so far.
+
+## Appendix
+
+```{r file='data_visualisation.R', eval=FALSE, echo=TRUE}
+
+```
+
+
