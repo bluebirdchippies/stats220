@@ -2,13 +2,12 @@ library(tidyverse)
 
 logged_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRetKKj9bMRzvsbYOusSWE0uw2oEJIxmDjFP6C2U79SCUlN05jlOH4OHHo5kVT4mpo5BdYi9q9NZh7w/pub?output=csv")
 
-
+# Renaming Dataset for easier use
 logged_data <- logged_data %>%
   rename(journey_mode = 2,
          duration = 3,
          start_time = 4)
 
-view(logged_data)
 
 #Number of each mode and its mean duration
 quantity_modes <- logged_data %>%
@@ -36,20 +35,15 @@ daytime_count <- binned_data %>%
   summarise(count=n(),
             mean = mean(duration))
 
-# number of peak hours journeys occurred in each mode and it means
- #peak_peak_count <- binned_data %>%
-  #group_by(peakhour_bin) %>%
-#  summarise(count=n(),
-        #    mean = mean(duration))
 
+# Summary for Data by both peak hours and journey mode
 peak_peak_count <- binned_data %>%
   group_by(peakhour_bin, journey_mode) %>%
   summarise(count=n(),
             mean = mean(duration))
 
-view(peak_peak_count)
-# box and whisker plot with the time stamps
 
+# making new df that has usable time stamps
 timestamp_data <- binned_data %>%
   separate(Timestamp, into = c("date", "time"), sep = " ") %>%
   mutate(date = dmy(date),
@@ -61,8 +55,8 @@ date_data <- timestamp_data %>%
 
 
 
-view(timestamp_data)
 
+# Creation of graph1
 graph1 <- ggplot(peak_peak_count) +
   geom_col(aes(x = reorder(peakhour_bin, -mean),
                y = mean, 
@@ -82,6 +76,7 @@ graph1 <- ggplot(peak_peak_count) +
   theme_minimal()
 graph1  
 
+# Creation of graph 2
 graph2<- timestamp_data %>%
   ggplot(aes(x = time, y = "Box")) +
   geom_boxplot(outlier.shape = NA,
@@ -115,6 +110,7 @@ graph2<- timestamp_data %>%
 
 graph2
 
+# Creation of Graph 3
 graph3 <- date_data %>%
   ggplot(aes(x=date, y = n_journeys)) +
   geom_line(colour="#3B1F2B") +
