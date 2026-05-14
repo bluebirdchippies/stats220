@@ -97,6 +97,7 @@ I also really wanted to do a heatmap for my graph, but I didn't have three sets 
 
 ## Visual data Story
 
+[Armand's Visual Data Story](https://bluebirdchippies.github.io/stats220/Project%204/visual_data_story)
 
 I wouldn't say this is extremely creative, but I put a lot of effort into the relative analysis on the graphs that I had chosen to make. One creative thing I did do was choosing to analyse meta-data instead of the observed data. I explained I did this because we had to utilise lubricate and work with the timestamps, and this was seemingly the best way to do so. If Austin does the same thing then just know I told him to do this. And it was quite fun working on meta data instead of regular data - it made me feel special. I guess making bins to make it easier to work on the data is also slighty creative to have a better insight on my data. I also really like the CSS used
 

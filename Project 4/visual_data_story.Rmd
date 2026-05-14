@@ -90,7 +90,7 @@ blockquote {
 </style>
 ```
 
-## Graph Numero Un
+## Graph Numero Uno
 
 ![Column Graph showing mean travel duration during peak and off peak hours](plot1.png)
 
@@ -98,14 +98,12 @@ So this graph is pretty similar to the one I made in Project 2. It compares the 
 
 The visualisation shows us that morning peak generally took longer on average then it does for afternoon peak or off peak hours. With bus journey's generally being longer then car travel duration. There is no data for Car in Afternoon peak because none of us travelled to and from uni between 3:30pm and 6pm by car.
 
-`peak_peak_count$mean %>% select`
-
 Whats interesting is that the mean bus journey time for afternoon peak is not that much longer then off-peak hours. But what makes sense is car travel time is almost always faster then bus travel time. 
 
 ## Graph Numero deux
 
 ![Two box plot graphs showing time of day data was entered](plot2.png)
-Descrition: The Y values mean nothing, they are spaced out like that so we can actually see the individual points properly.
+Descretion : The Y values mean nothing, they are spaced out like that so we can actually see the individual points properly.
 
 Utilising facets is a tremendous idea here. Looking at this graph we can see a few things. We see two graphs, one labelled Austin and one labelled Armand. Austin's interquartile range is a lot smaller then Armand's IQR. Despite having more then 3x the number of observations than Armand does, his data is much more closer together. Which concludes that he is a lot more consistent in logging data in terms of timing and also relative consistency. Not only having triple Armand's observations but he also tends to put his observations down at 3pm or 10am. He is so consistent, his IQR is genuinely a line. Armand's data doesn't really tell a great story because 1) it is very inconsistent and 2) there is only 11 observations.
 
@@ -116,14 +114,15 @@ This graph, again showing metadata, draws a timeline of how often observations w
 
 One story that we do figure out from looking at the two graphs above is from what we see about 18 observations were logged on May 4th. And in the second plot, many observations were logged at about 3pm. So perhaps, Austin was not consistent (Armand didn't log on May 4th, I know, I was there), and simply looked into his AT data and just logged them all at the same time. Which if he did, he deserves some glaze.
 
-## Wait, another dancing cat?
+## squid game?
 
-![A tabby cat dancing](https://media.tenor.com/NcCe__ZKe9oAAAAM/dancing-cat-cat-meme.gif)
+![IVE PLAYED THESE GAMES BEFORE](https://c.tenor.com/5LVEjoNtey4AAAAd/tenor.gif)
+
 
 
 ## A dance team of kittens!
 
-![Five kittens head banging](https://c.tenor.com/pY-3HX1r4wUAAAAC/tenor.gif)
+![MONOKUMA BEAR](https://media.tenor.com/9gr6QEQAtX0AAAAi/monokuma-dance.gif)
 
 
 
