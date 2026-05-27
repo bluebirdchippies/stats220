@@ -81,13 +81,17 @@ https://www.beehive.govt.nz/minister/hon-david-seymour pages 1,2,3,4, and 5 were
 
 Wikipedia API scraping was also used, but remained untouched for data manipulation and visualisation creation.
 
-I'm not sure how to reference it. But my last data set involved was from Spotify 2026. Using teh Web API on the Spotify for Developers Website. And I got meta data from my own spotify account. All data was vieweed 26/27 May 2026.
+I'm not sure how to reference it. But my last data set involved was from Spotify 2026. Using teh Web API on the Spotify for Developers Website. And I got meta data from my own spotify account. All data was viewed 26/27 May 2026.
 
 **In order to use the Web API for Spotify, AI and CHATGPT was used and the code can be found in spotify_api_scrape.R in the Project 5 folder**
 
 ## Visualisation
 
 I made two because I felt that with all the work I put into getting the work, I really wanted to do two. My first visualisation is to see if there is any sort of relationship between the dates where articles were made about David Seymour in beehive.govt.nz and when I added songs to my main playlist. I am happy to say that there is absolutely zero correlation.
+
+I have mentioned this in the comments of my visualisation.R file, but the graph may look unusual because the data has been normalised. I normalised the values because the number of songs added to my playlist was much higher than the number of Beehive articles created. Without normalization, ggplot does not include some points from the playlist frequency due to how much higher it is to the article freqeuncy
+
+Another reason the data may look uneven is because I used a left join with the Beehive dataset as the main table. This means all matching Beehive dates were kept, but some dates from the playlist dataset were not included if there was no matching Beehive article data for that date. As a result, some playlist observations were lost during the join. 
 
 ![Graph 1](my_viz1.png)
 
@@ -143,3 +147,9 @@ Yes I did not use stringr functions. However I used an abundance of dplyr and lu
 
 ```
 ```{r file='visualisation.R', eval=FALSE, echo=TRUE}
+
+``` 
+```{r file = 'spotify_api_scrape.R', eval=FALSE, echo=TRUE}
+
+```
+

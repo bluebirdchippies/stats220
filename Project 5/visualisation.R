@@ -46,7 +46,7 @@ line_graph_normalised <- line_graph_df %>%
     songs_added_scaled = songs_added / max(songs_added, na.rm = TRUE),
     articles_created_scaled = articles_created / max(articles_created, na.rm = TRUE)
   )
-view(line_graph_normalised)
+
 # ------------Creation of other graph Data -----------
 
 # Wanted to do a second graph based off Artist for Playlist and
@@ -64,7 +64,7 @@ month_df <- inner_join(month_beehive, month_playlist, by = "month_added") %>%
          portfolio_count = 3,
          artist_count =5)
 
-view(month_df)
+
 # WE are gonna make two line and point graphs for the frequency of songs added 
 # vs frequency of articles per day regardless of year
 # Then also frequency of portfolio vs frequency of artist per month
@@ -97,7 +97,7 @@ graph1 <- ggplot(line_graph_normalised) +
   
   labs(title = "Frequency of songs added to my playlist vs articles regarding David Seymour created",
        x = "Date Added",
-       y = "Normalised values of Songs added/articles created") +
+       y = "NORMALISED values of Songs added/articles created") +
   
   scale_colour_manual(
     values = c(
